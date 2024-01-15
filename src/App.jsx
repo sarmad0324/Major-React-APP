@@ -1,38 +1,49 @@
 //use npm create vite@latest
 // npm install
+import { useState } from "react"
+import Container from "./components/container";
+import Button from "./components/Button"
+import Todo from "./components/Todo";
+import Input from "./components/Input";
+import Form from "./components/Form";
+import { SiInstatus } from "react-icons/si";
 
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  //map method
+  let [text, setText]=useState([])
+  const change=(event)=>{
+    if(event.key==="Enter"){
+      let newtodo=event.target.value 
+      event.target.value=""
+      let todo=[...text,newtodo]
+      setText(todo)
+    }
+  }
+  const del =(i)=>{
+    const todo=text.filter(text => text!=i)
+    setText(todo)
+  }
+  
+  
+  let message = text.length == 0 ? <h3>Todo is empty</h3> : null;
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Container>
+      
+        <h1 className="p-2 text-center bg-secondary-subtle">This is a major react app <SiInstatus /></h1>
+        <Input keypress={change}/>
+        <Todo list={text} msg={message} click={del}/>
+        <Button count={text.length} />
+      </Container>
+      <Container>
+        <Form/>
+      </Container>
+      {/* <Container>
+        <p>Todo App</p>
+      </Container> */}
     </>
   )
 }
-
 export default App
