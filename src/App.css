@@ -1,0 +1,92 @@
+@media(min-width:770px){
+    .app{
+        display: flex;
+    }
+    .main{
+        margin-left: 250px;
+        width: 100%;
+    }
+    .side{
+        min-width: 250px;
+        min-height: 950px;
+        position:fixed;
+        display: block;
+    }
+    .bar{
+        min-height: 717px;
+        display: flex;
+        flex-direction: column;
+    }
+    .content{
+        display: grid;
+       
+        background-color: rgb(31, 31, 31);
+        justify-content: center;
+        padding: 50px 0px;
+        margin: -2px 0px ;
+    }
+    .post{
+        margin-top: 15px;
+        width: 28rem;
+    }.form{
+        border: 1px black solid;
+        width: 33rem;
+    }
+    .ho:hover{
+        opacity: 50%;
+    }
+}
+@media (max-width:769px){
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: top 0.3s;
+      }
+      .navbar--hidden {
+        top: -100px;
+      }
+    
+    header{
+        display: none;
+    }
+    .main{
+        margin-left: 0px;
+        width: 100%;
+    }
+    .side{
+        width: 100%;
+        padding-top: 20px;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .bar{
+        min-height: 0px;
+        display: flex;
+        flex-direction: row;
+    }
+    .content{
+        display: grid;
+       
+        background-color: rgb(31, 31, 31);
+        justify-content: center;
+        padding: 50px 0px;
+        margin: -2px 0px ;
+    }
+    .post{
+        margin-top: 15px;
+        width: 24rem;
+    }.form{
+        border: 1px black solid;
+        width: 24rem;
+    }
+    .ho:hover{
+        opacity: 50%;
+    }
+     form img{
+        width: 300px;
+        height: 230px;
+    }
+}
